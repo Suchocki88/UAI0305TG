@@ -1,0 +1,1273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 3.5: Recognizing Good Output - Teacher's Guide</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            min-height: 100vh;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .header h1 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .subtitle {
+            font-size: 1rem;
+            opacity: 0.95;
+            font-weight: 300;
+        }
+        
+        .lesson-info {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 0.4rem 0.8rem;
+            border-radius: 4px;
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+        }
+        
+        .nav-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+        
+        .nav-buttons a {
+            display: inline-block;
+            padding: 0.4rem 0.8rem;
+            background: rgba(255,255,255,0.2);
+            color: white;
+            text-decoration: none;
+            font-size: 0.75rem;
+            border-radius: 4px;
+            transition: background 0.2s;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+        
+        .nav-buttons a:hover {
+            background: rgba(255,255,255,0.3);
+        }
+        
+        .content {
+            padding: 2rem;
+        }
+        
+        .section {
+            margin-bottom: 3rem;
+        }
+        
+        .section h2 {
+            color: #667eea;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #667eea;
+        }
+        
+        .section h3 {
+            color: #764ba2;
+            font-size: 1.2rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.8rem;
+        }
+        
+        .section h4 {
+            color: #555;
+            font-size: 1rem;
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .highlight-box {
+            background: #e3f2fd;
+            border-left: 4px solid #2196f3;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+        
+        .success-box {
+            background: #e8f5e9;
+            border-left: 4px solid #4caf50;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+        
+        .warning-box {
+            background: #fff3e0;
+            border-left: 4px solid #ff9800;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+        
+        .tip-box {
+            background: #f3e5f5;
+            border-left: 4px solid #9c27b0;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+        
+        .script-box {
+            background: #fafafa;
+            border: 2px solid #ddd;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+            font-style: italic;
+        }
+        
+        .script-label {
+            background: #667eea;
+            color: white;
+            padding: 0.3rem 0.6rem;
+            border-radius: 3px;
+            font-size: 0.8rem;
+            display: inline-block;
+            margin-bottom: 0.5rem;
+            font-style: normal;
+            font-weight: bold;
+        }
+        
+        .objectives-list {
+            margin: 1rem 0;
+        }
+        
+        .objectives-list ul, .objectives-list ol {
+            margin-left: 2rem;
+            margin-top: 0.5rem;
+        }
+        
+        .objectives-list li {
+            margin: 0.5rem 0;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+        
+        table th {
+            background: #667eea;
+            color: white;
+            padding: 0.8rem;
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        table td {
+            padding: 0.8rem;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        table tr:hover {
+            background: #f5f5f5;
+        }
+        
+        .timeline {
+            margin: 1.5rem 0;
+        }
+        
+        .timeline-item {
+            display: grid;
+            grid-template-columns: 120px 1fr;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .timeline-time {
+            font-weight: bold;
+            color: #667eea;
+            font-size: 0.9rem;
+        }
+        
+        .timeline-content ul {
+            margin-left: 1.5rem;
+            margin-top: 0.5rem;
+        }
+        
+        .timeline-content li {
+            margin: 0.3rem 0;
+        }
+        
+        .materials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .material-card {
+            background: #f9f9f9;
+            padding: 1rem;
+            border-radius: 8px;
+            border: 1px solid #e0e0e0;
+        }
+        
+        .material-card h4 {
+            color: #667eea;
+            margin-bottom: 0.5rem;
+        }
+        
+        .material-card ul {
+            margin-left: 1.5rem;
+            margin-top: 0.5rem;
+        }
+        
+        .print-button {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #4caf50;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            z-index: 1000;
+        }
+        
+        .print-button:hover {
+            background: #45a049;
+        }
+        
+        @media print {
+            .print-button {
+                display: none;
+            }
+            .header {
+                position: relative;
+            }
+            .nav-buttons {
+                display: none;
+            }
+            body {
+                background: white;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-buttons {
+                flex-direction: column;
+            }
+            .nav-buttons a {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📊 Lesson 3.5: Recognizing Good Output</h1>
+            <div class="subtitle">Teacher's Guide | Lab Day</div>
+            <div class="lesson-info">Chapter 3: Prompt Engineering</div>
+            <div class="nav-buttons">
+                <a href="#overview">📋 Overview</a>
+                <a href="#objectives">🎯 Objectives</a>
+                <a href="#materials">📦 Materials</a>
+                <a href="#preparation">🔧 Preparation</a>
+                <a href="#lesson-flow">⏱️ Lesson Flow</a>
+                <a href="#facilitation">👨‍🏫 Facilitation</a>
+                <a href="#assessment">📊 Assessment</a>
+                <a href="#differentiation">♿ Differentiation</a>
+                <a href="#challenges">🚧 Challenges</a>
+                <a href="#resources">📚 Resources</a>
+                <a href="#reflection">💭 Reflection</a>
+            </div>
+        </div>
+        
+        <button class="print-button" onclick="window.print()">🖨️ Print Guide</button>
+        
+        <div class="content">
+            <!-- OVERVIEW SECTION -->
+            <section id="overview" class="section">
+                <h2>📋 Lesson Overview</h2>
+                
+                <div class="highlight-box">
+                    <h4>🎯 The Big Idea</h4>
+                    <p>Students develop their editorial eye—the ability to recognize and articulate what makes AI output effective or ineffective. Through systematic evaluation of multiple responses to identical prompts, students move from vague reactions ("I like this one") to specific judgments ("This works better because it uses concrete examples and defines technical terms"). This foundational skill makes all future prompting work more effective.</p>
+                </div>
+                
+                <h3>Key Conceptual Goals</h3>
+                <p>By the end of this lesson, students should:</p>
+                <div class="objectives-list">
+                    <ul>
+                        <li><strong>Recognize</strong> that evaluating AI output requires specific criteria, not just personal taste</li>
+                        <li><strong>Identify</strong> concrete features that make output clear, engaging, accurate, complete, and audience-appropriate</li>
+                        <li><strong>Develop</strong> vocabulary for describing quality differences systematically</li>
+                        <li><strong>Practice</strong> making editorial judgments quickly and confidently</li>
+                        <li><strong>Understand</strong> that criteria vary by domain, audience, and purpose</li>
+                        <li><strong>Experience</strong> AI's natural variation when prompted multiple times</li>
+                    </ul>
+                </div>
+                
+                <h3>This Lesson in Context</h3>
+                
+                <div class="success-box">
+                    <h4>✅ What Students Already Know:</h4>
+                    <ul>
+                        <li>Four basic prompt structures and iteration cycles (Lesson 3.2)</li>
+                        <li>How context decisions affect AI responses (Lesson 3.3)</li>
+                        <li><strong>Yesterday (Lesson 3.4):</strong> Writing skills enable editorial judgment—you can't give effective direction without recognizing quality</li>
+                        <li>The distinction between Level 1 (appreciation) and Level 2 (editorial judgment)</li>
+                    </ul>
+                </div>
+                
+                <div class="tip-box">
+                    <h4>🔮 What This Lesson Prepares Students For:</h4>
+                    <ul>
+                        <li><strong>Tomorrow (Lesson 3.6):</strong> Discussion Day reflecting on quality, context, and creative project experiences</li>
+                        <li><strong>Lesson 3.7:</strong> Building simulations requires editorial judgment about when output is "good enough"</li>
+                        <li><strong>Creative Project:</strong> Every evaluation of AI-generated story content uses today's skills</li>
+                        <li><strong>All future prompting:</strong> The editorial eye guides every iteration decision</li>
+                    </ul>
+                </div>
+            </section>
+            
+            <!-- OBJECTIVES SECTION -->
+            <section id="objectives" class="section">
+                <h2>🎯 Learning Objectives</h2>
+                
+                <h3>Content Knowledge</h3>
+                <div class="objectives-list">
+                    <ul>
+                        <li>Students will identify specific features that make AI output effective or ineffective</li>
+                        <li>Students will articulate criteria for evaluating AI responses across different domains</li>
+                        <li>Students will explain why the same prompt can produce varying quality outputs</li>
+                        <li>Students will describe how evaluation criteria vary by topic, audience, and purpose</li>
+                    </ul>
+                </div>
+                
+                <h3>Skills & Practices</h3>
+                <div class="objectives-list">
+                    <ul>
+                        <li>Students will systematically compare multiple AI responses using rubrics</li>
+                        <li>Students will develop and apply domain-specific evaluation criteria</li>
+                        <li>Students will make and justify editorial decisions about quality</li>
+                        <li>Students will document their reasoning in field journals with specific evidence</li>
+                        <li>Students will collaborate to build shared understanding of quality standards</li>
+                    </ul>
+                </div>
+                
+                <h3>Dispositions & Mindsets</h3>
+                <div class="objectives-list">
+                    <ul>
+                        <li>Students will develop confidence in their editorial judgment</li>
+                        <li>Students will appreciate that quality evaluation is a learnable skill, not innate talent</li>
+                        <li>Students will cultivate the "30-second critique" mindset for efficient iteration</li>
+                        <li>Students will recognize the value of systematic evaluation over gut reactions</li>
+                    </ul>
+                </div>
+            </section>
+            
+            <!-- MATERIALS SECTION -->
+            <section id="materials" class="section">
+                <h2>📦 Materials Needed</h2>
+                
+                <div class="materials-grid">
+                    <div class="material-card">
+                        <h4>🔴 Required</h4>
+                        <ul>
+                            <li>Student access to Alia (AI Learning Assistant)</li>
+                            <li>Field journals (physical or digital)</li>
+                            <li>Student-facing Lesson 3.5 guide</li>
+                            <li>Internet connection</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="material-card">
+                        <h4>🟡 Recommended</h4>
+                        <ul>
+                            <li>Document camera or screen sharing for demonstrations</li>
+                            <li>Chart paper or whiteboard for building shared criteria</li>
+                            <li>Visible timer or clock for pacing</li>
+                            <li>Colored markers/highlighters for annotation</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="material-card">
+                        <h4>🟢 Optional</h4>
+                        <ul>
+                            <li>Pre-printed Response Comparison Templates</li>
+                            <li>Example responses for modeling (if needed)</li>
+                            <li>"Editorial Eye" reference cards</li>
+                            <li>Rubric templates for different domains</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- PREPARATION SECTION -->
+            <section id="preparation" class="section">
+                <h2>🔧 Teacher Preparation</h2>
+                
+                <h3>Before Class Starts</h3>
+                
+                <div class="objectives-list">
+                    <h4>Technology Check (15 minutes before):</h4>
+                    <ul>
+                        <li>Verify all students can access Alia interface</li>
+                        <li>Test that word count constraints are working (responses should be ~150 words or less)</li>
+                        <li>Confirm students can access their field journals</li>
+                        <li>Have your own Alia instance ready for demonstration if needed</li>
+                    </ul>
+                </div>
+                
+                <div class="objectives-list">
+                    <h4>Organize Teams (if not already established):</h4>
+                    <ul>
+                        <li>Teams of 3-4 students work best for this lesson</li>
+                        <li>Mix skill levels—pair strong writers with strong evaluators</li>
+                        <li>Consider mixing students with different domain interests for Activity 2</li>
+                    </ul>
+                </div>
+                
+                <div class="objectives-list">
+                    <h4>Assign Prompts for Activity 1:</h4>
+                    <ul>
+                        <li>Decide how to distribute the four prompt options across teams</li>
+                        <li>Option A: Assign different prompts to different teams (creates variety for closing discussion)</li>
+                        <li>Option B: Give all teams the same prompt (easier comparison, but less variety)</li>
+                        <li>Option C: Let teams choose their prompt (increases engagement but may cluster on one topic)</li>
+                        <li><strong>Recommendation:</strong> Use Option A—assign prompts to ensure even distribution</li>
+                    </ul>
+                </div>
+                
+                <div class="warning-box">
+                    <h4>⚠️ Critical Preparation Note</h4>
+                    <p>This lesson depends on students experiencing AI's natural variation. Test the prompts yourself beforehand—submit each prompt 2-3 times to Alia to verify you're getting meaningfully different responses. If responses are too similar, work with developers to adjust Alia-Lab's settings for this lesson.</p>
+                </div>
+                
+                <h3>Understanding AI Variation</h3>
+                
+                <p>A key learning moment in this lesson is when students discover that AI doesn't produce identical outputs each time. This teaches:</p>
+                <div class="objectives-list">
+                    <ul>
+                        <li><strong>AI behavior:</strong> Pattern-based generation creates natural variation</li>
+                        <li><strong>Evaluation necessity:</strong> Since outputs vary, you must evaluate each one</li>
+                        <li><strong>Iteration value:</strong> If first output isn't great, try again—it might be better</li>
+                    </ul>
+                </div>
+                
+                <p>Some students may be surprised by variation, others won't be. Either way, name it explicitly during the lesson.</p>
+            </section>
+            
+            <!-- LESSON FLOW SECTION -->
+            <section id="lesson-flow" class="section">
+                <h2>⏱️ Lesson Flow & Timeline</h2>
+                
+                <div class="timeline">
+                    <h3>Suggested 50-Minute Structure</h3>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-time">0:00-0:05<br>(5 min)</div>
+                        <div class="timeline-content">
+                            <strong>Opening: Developing the Editorial Eye</strong>
+                            <ul>
+                                <li>Connect to yesterday's lesson (Lesson 3.4)</li>
+                                <li>Frame today's learning goal</li>
+                                <li>Preview the two activities</li>
+                                <li>Explain "editorial eye" concept</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-time">0:05-0:30<br>(25 min)</div>
+                        <div class="timeline-content">
+                            <strong>Activity 1: Systematic Comparison</strong>
+                            <ul>
+                                <li>Generate responses (5 min): Each student prompts Alia individually</li>
+                                <li>Select for comparison (2 min): Teams choose 3-4 most different responses</li>
+                                <li>Read & evaluate (8 min): Use rubric, document in field journal</li>
+                                <li>Team discussion (5 min): Compare ratings and identify patterns</li>
+                                <li>Field journal documentation (5 min): Complete reflection prompt</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-time">0:30-0:45<br>(15 min)</div>
+                        <div class="timeline-content">
+                            <strong>Activity 2: Building Your Criteria</strong>
+                            <ul>
+                                <li>Choose domain (2 min): Students pick topics they know well</li>
+                                <li>Write prompt (1 min): Craft one clear prompt with word count</li>
+                                <li>Generate responses (3 min): Submit prompt 3 times to Alia</li>
+                                <li>Develop criteria (4 min): Create 3-5 domain-specific evaluation standards</li>
+                                <li>Evaluate & select (3 min): Rate responses, pick the best</li>
+                                <li>Field journal documentation (2 min): Record work and reflection</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-time">0:45-0:50<br>(5 min)</div>
+                        <div class="timeline-content">
+                            <strong>Closing: Synthesizing Insights</strong>
+                            <ul>
+                                <li>Quick sharing: Most useful criteria discovered</li>
+                                <li>Build shared vocabulary for quality</li>
+                                <li>Connect to future work (tomorrow's discussion, creative project)</li>
+                                <li>Preview final field journal reflection</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tip-box">
+                    <h4>⏰ Timing Flexibility Note</h4>
+                    <p>The timeline above assumes 50 minutes. <strong>For shorter periods (40-45 min):</strong> Reduce Activity 1 to 20 minutes (cut 2 min from evaluation, 2 min from discussion, 1 min from documentation). Reduce Activity 2 to 12 minutes (focus on 3 criteria instead of 3-5). Keep opening and closing at 5 minutes each—these bookends matter.</p>
+                    <p><strong>For longer periods (60-75 min):</strong> Extend Activity 2 to 25 minutes, allowing students to test multiple domains or generate 4-5 responses instead of 3. Add 10-minute mid-point whole-class discussion to share emerging criteria and build shared understanding.</p>
+                </div>
+            </section>
+            
+            <!-- FACILITATION SECTION -->
+            <section id="facilitation" class="section">
+                <h2>👨‍🏫 Detailed Facilitation Guide</h2>
+                
+                <h3>Opening: Developing the Editorial Eye (5 minutes)</h3>
+                
+                <div class="script-box">
+                    <div class="script-label">SUGGESTED OPENING SCRIPT</div>
+                    <p>"Yesterday, you discovered why writing skills matter in an AI-powered world. You explored the difference between Level 1—saying 'I like this' or 'something's off'—and Level 2—being able to diagnose exactly what's wrong and how to fix it. You learned that editorial judgment requires understanding the craft.</p>
+                    <p>"Today, we're going to <strong>develop that editorial eye systematically</strong>. You'll evaluate multiple AI responses to identical prompts, build criteria for recognizing quality, and practice making editorial judgments. This isn't about gut feelings or personal taste. This is about developing specific criteria you can articulate and apply.</p>
+                    <p>"By the end of today, you'll have a toolkit for evaluating AI output—and that's what makes effective prompting possible. You can't iterate well if you don't know what 'better' looks like."</p>
+                </div>
+                
+                <h4>Key Points to Emphasize:</h4>
+                <div class="objectives-list">
+                    <ul>
+                        <li><strong>Learnable skill:</strong> Editorial judgment isn't magic or talent—it's systematic evaluation</li>
+                        <li><strong>Foundation for prompting:</strong> You need to recognize good output before you can prompt for it</li>
+                        <li><strong>Connects to 3.2:</strong> The "30-second critique" depends on this skill</li>
+                        <li><strong>Applies to creative project:</strong> Every evaluation of AI-generated story content uses today's work</li>
+                    </ul>
+                </div>
+                
+                <div class="tip-box">
+                    <h4>💡 Addressing Student Uncertainty</h4>
+                    <p>Students might feel uncertain about their ability to judge quality—"Who am I to say what's good?" Emphasize that they're building <strong>evaluation criteria systematically</strong>, not just expressing opinions. Professional editors learn this skill; so can they. Today's activities give them concrete frameworks for judgment.</p>
+                </div>
+                
+                <h3>Activity 1: Systematic Comparison (25 minutes)</h3>
+                
+                <h4>Setup & Prompt Assignment (2 minutes)</h4>
+                
+                <p>Assign each team one of the four prompts. Explain that every team member will submit the SAME prompt individually to see what variation emerges.</p>
+                
+                <div class="success-box">
+                    <h4>✅ The Four Prompts:</h4>
+                    <ol>
+                        <li>"Explain how to improve free-throw shooting in basketball (under 150 words)"</li>
+                        <li>"Write a brief explanation of why leaves change color in fall (under 150 words)"</li>
+                        <li>"Describe three strategies for managing test anxiety (under 150 words)"</li>
+                        <li>"Explain the plot of Romeo and Juliet to someone who's never heard of it (under 150 words)"</li>
+                    </ol>
+                </div>
+                
+                <h4>Phase 1: Generate & Select (7 minutes total)</h4>
+                
+                <p><strong>Generate Responses (5 minutes):</strong></p>
+                <div class="objectives-list">
+                    <ul>
+                        <li>Each student submits their team's assigned prompt to Alia individually</li>
+                        <li>Students save/copy their response (they may want to copy-paste into a shared doc or just read aloud to team)</li>
+                        <li>Monitor: Are students following instructions? Getting responses ~150 words?</li>
+                    </ul>
+                </div>
+                
+                <div class="warning-box">
+                    <h4>⚠️ Technical Issue Alert</h4>
+                    <p>If Alia is producing much longer responses (300+ words), pause and have students add the word count constraint more explicitly: "Keep your response under 150 words." This is a teaching moment about prompt specificity.</p>
+                </div>
+                
+                <p><strong>Select for Comparison (2 minutes):</strong></p>
+                <div class="objectives-list">
+                    <ul>
+                        <li>Teams quickly scan all their responses</li>
+                        <li>Select the 3-4 that are most different from each other</li>
+                        <li>If all responses are very similar (uncommon but possible), just pick any 3-4</li>
+                    </ul>
+                </div>
+                
+                <div class="tip-box">
+                    <h4>💡 If Responses Are Too Similar</h4>
+                    <p>Some teams might get very similar responses. This happens occasionally and is fine—they can still evaluate subtle differences. If it happens to multiple teams, name it: "AI sometimes produces similar outputs. You're still developing evaluation skills by finding the subtle differences."</p>
+                </div>
+                
+                <h4>Phase 2: Read & Evaluate (8 minutes)</h4>
+                
+                <p><strong>First Read (2 minutes):</strong> Students read each selected response carefully</p>
+                <p><strong>Second Read + Rubric (6 minutes):</strong> Students evaluate each response using the 5 criteria</p>
+                
+                <div class="objectives-list">
+                    <h4>The Evaluation Rubric (from student guide):</h4>
+                    <ul>
+                        <li><strong>Clarity:</strong> 1=confusing, 2=somewhat clear, 3=mostly clear, 4=crystal clear</li>
+                        <li><strong>Engagement:</strong> 1=boring, 2=bland, 3=interesting, 4=compelling</li>
+                        <li><strong>Accuracy:</strong> 1=wrong, 2=partially correct, 3=mostly accurate, 4=fully accurate</li>
+                        <li><strong>Completeness:</strong> 1=incomplete, 2=missing parts, 3=addresses most, 4=comprehensive</li>
+                        <li><strong>Audience Fit:</strong> 1=wrong audience, 2=somewhat appropriate, 3=good fit, 4=perfect match</li>
+                    </ul>
+                </div>
+                
+                <div class="teacher-note">
+                    <h4>👨‍🏫 Your Role During Evaluation:</h4>
+                    <p><strong>Circulate strategically,</strong> spending 1-2 minutes with each team:</p>
+                    
+                    <h4>Listen for:</h4>
+                    <ul>
+                        <li>Are students using specific criteria or just saying "I like this one better"?</li>
+                        <li>Do they notice concrete features (sentence length, vocabulary choice, organization)?</li>
+                        <li>Can they articulate WHY something works or doesn't?</li>
+                        <li>Are they documenting observations in field journals as they go?</li>
+                    </ul>
+                    
+                    <h4>Prompting Questions:</h4>
+                    <ul>
+                        <li>"What specific words or phrases made that response clearer than this one?"</li>
+                        <li>"You said this one is boring—what would make it more engaging?"</li>
+                        <li>"Look at the opening sentence of each response. How do they differ?"</li>
+                        <li>"Which response would work best for someone who knows nothing about this topic?"</li>
+                        <li>"What are you writing in your field journal about these differences?"</li>
+                    </ul>
+                </div>
+                
+                <div class="warning-box">
+                    <h4>⚠️ Common Issue: Students Struggle to Differentiate</h4>
+                    <p>If a team says "they're all about the same," challenge them to look closer:</p>
+                    <ul>
+                        <li>"Pick just one criterion—clarity. Now which is best?"</li>
+                        <li>"Read the first sentence of each. Which opening hooks you most effectively?"</li>
+                        <li>"If you had to choose one to send to a friend, which would it be? Why?"</li>
+                    </ul>
+                    <p>Sometimes the struggle itself is the learning—recognizing subtle differences builds the editorial eye.</p>
+                </div>
+                
+                <h4>Phase 3: Team Discussion (5 minutes)</h4>
+                
+                <p>Teams discuss their evaluations:</p>
+                <div class="objectives-list">
+                    <ul>
+                        <li>Did everyone rank them the same way? Why or why not?</li>
+                        <li>What criteria mattered most?</li>
+                        <li>What specific features made the best response effective?</li>
+                        <li>If you could improve the weakest response with ONE change, what would it be?</li>
+                    </ul>
+                </div>
+                
+                <div class="tip-box">
+                    <h4>💡 Value of Disagreement</h4>
+                    <p>Don't aim for consensus. Different rankings reveal that editorial judgment involves <strong>trade-offs and priorities</strong>. One student might value engagement most, another accuracy. Both are valid—it depends on purpose and audience. Name this: "Notice that your team didn't all agree? That's actually important—different contexts need different priorities."</p>
+                </div>
+                
+                <h4>Phase 4: Field Journal Documentation (5 minutes)</h4>
+                
+                <p>Students complete the Activity 1 reflection prompt in their field journals:</p>
+                
+                <div class="highlight-box">
+                    <h4>Field Journal Prompt:</h4>
+                    <p><em>Write about your evaluation process: What was your ranking (best to worst) and why? Which criterion was most important for THIS topic? What specific feature made the best response work? What surprised you about the differences between responses? Did your team agree or disagree? What did you learn from that discussion?</em></p>
+                </div>
+                
+                <h3>Activity 2: Building Your Criteria (15 minutes)</h3>
+                
+                <h4>Setup: Choose Your Domain (2 minutes)</h4>
+                
+                <div class="script-box">
+                    <div class="script-label">TRANSITION SCRIPT</div>
+                    <p>"Now you're going to develop YOUR OWN evaluation criteria for a topic YOU care about. In Activity 1, you used a general rubric that works for many topics. But remember from yesterday—editorial judgment requires understanding the craft.</p>
+                    <p>"Pick something you know well. Your expertise will help you recognize what makes a good explanation in YOUR domain. You'll see how evaluation criteria change based on topic, audience, and purpose."</p>
+                </div>
+                
+                <p><strong>Student Task:</strong> Choose a topic where they have expertise or strong interest</p>
+                
+                <div class="objectives-list">
+                    <h4>Good Domain Examples (share these if students are stuck):</h4>
+                    <ul>
+                        <li>A sport you play</li>
+                        <li>An instrument or creative skill</li>
+                        <li>A hobby or game you're passionate about</li>
+                        <li>A subject you excel in academically</li>
+                        <li>Something you could teach to someone else</li>
+                    </ul>
+                </div>
+                
+                <h4>Write Prompt → Generate → Develop Criteria → Evaluate (11 minutes)</h4>
+                
+                <p><strong>Write One Prompt (1 min):</strong> Students craft a clear prompt with word count constraint</p>
+                
+                <p><strong>Generate 3 Responses (3 min):</strong> Submit the same prompt three times, save each response</p>
+                
+                <div class="tip-box">
+                    <h4>💡 Coaching Students on Prompts</h4>
+                    <p>If students struggle with prompt writing, help them with these frames:</p>
+                    <ul>
+                        <li>"Explain three strategies for [skill in your domain] (under 150 words)"</li>
+                        <li>"Describe how to [accomplish X] effectively (under 150 words)"</li>
+                        <li>"Write advice for someone learning [your interest] for the first time (under 150 words)"</li>
+                    </ul>
+                </div>
+                
+                <p><strong>Develop Criteria (4 min):</strong> This is the heart of the activity</p>
+                
+                <div class="teacher-note">
+                    <h4>👨‍🏫 Your Role: Push for Specificity</h4>
+                    
+                    <h4>Help students who struggle with criteria by asking:</h4>
+                    <ul>
+                        <li>"What would actually HELP someone learning this?"</li>
+                        <li>"What information is essential vs. nice-to-have?"</li>
+                        <li>"What mistakes do beginners commonly make that a good explanation should address?"</li>
+                        <li>"Does safety matter for your topic? Practicality? Motivation? Accuracy?"</li>
+                    </ul>
+                    
+                    <h4>Push advanced students by asking:</h4>
+                    <ul>
+                        <li>"Which of your criteria matters MOST for this topic? Why?"</li>
+                        <li>"How would your criteria change if the audience were experts vs. beginners?"</li>
+                        <li>"Can you identify which criteria are universal vs. domain-specific?"</li>
+                    </ul>
+                </div>
+                
+                <div class="success-box">
+                    <h4>✅ Examples of Strong Domain-Specific Criteria</h4>
+                    <p><strong>For "How to bake bread":</strong></p>
+                    <ul>
+                        <li>Safety & Accuracy (temps/times correct?)</li>
+                        <li>Beginner-Friendly (no jargon undefined?)</li>
+                        <li>Practical (can someone DO this?)</li>
+                        <li>Addresses Common Mistakes</li>
+                    </ul>
+                    <p><strong>For "Improving at competitive gaming":</strong></p>
+                    <ul>
+                        <li>Strategic Depth (beyond "practice more"?)</li>
+                        <li>Actionable (specific enough to implement?)</li>
+                        <li>Balanced (mechanics AND mental game?)</li>
+                        <li>Game-Relevant (applies to actual play?)</li>
+                    </ul>
+                </div>
+                
+                <p><strong>Evaluate & Select (3 min):</strong> Rate responses, pick the best, justify the choice</p>
+                
+                <h4>Field Journal Documentation (2 minutes)</h4>
+                
+                <p>Students record their work in field journals using the Activity 2 prompt:</p>
+                
+                <div class="highlight-box">
+                    <h4>Field Journal Prompt:</h4>
+                    <p><em>Record: (1) My topic, (2) My prompt (exact wording), (3) My criteria (3-5 standards with brief explanation), (4) My ranking (best to worst), (5) Why the best response won (specific features), (6) Reflection: What did I learn about recognizing quality in this domain? How will this help me prompt AI in the future?</em></p>
+                </div>
+                
+                <div class="warning-box">
+                    <h4>⚠️ If Students Rush Through Activity 2</h4>
+                    <p>Some students may rush to "finish" without deep thought. Slow them down:</p>
+                    <ul>
+                        <li>"Your criteria are too general. Make them specific to YOUR topic."</li>
+                        <li>"You ranked Response A first—what EXACTLY made it better?"</li>
+                        <li>"Look at your field journal. Would someone else understand your thinking?"</li>
+                    </ul>
+                    <p>Quality over speed. This work directly impacts their creative project and future prompting.</p>
+                </div>
+                
+                <h3>Closing: Synthesizing Insights (5 minutes)</h3>
+                
+                <h4>Quick Sharing (3 minutes)</h4>
+                
+                <p>Use a structured protocol for efficient sharing:</p>
+                
+                <div class="objectives-list">
+                    <h4>Round 1: Popcorn Sharing (1-2 min)</h4>
+                    <ul>
+                        <li>"Call out one criterion that was ESSENTIAL for your topic"</li>
+                        <li>Record on board as students share</li>
+                        <li>Look for patterns—which criteria appear multiple times?</li>
+                    </ul>
+                    
+                    <h4>Round 2: Domain-Specific Insights (1-2 min)</h4>
+                    <ul>
+                        <li>Ask 2-3 volunteers: "For [your topic], the most important thing was [criterion] because..."</li>
+                        <li>Class notices: Do different domains prioritize different criteria?</li>
+                    </ul>
+                </div>
+                
+                <h4>Building Shared Vocabulary (2 minutes)</h4>
+                
+                <div class="script-box">
+                    <div class="script-label">SYNTHESIS SCRIPT</div>
+                    <p>"Look at what we've collected on the board. Some criteria appear for almost every topic—clarity, accuracy, completeness. Others are domain-specific—safety for physical activities, emotional resonance for creative work, practicality for how-to guides.</p>
+                    <p>"This is your toolkit for future prompting. When you're iterating or working on your creative project, you'll use these criteria to decide: 'Is this response good enough, or do I need to prompt again?'</p>
+                    <p>"<strong>The editorial eye you developed today makes all future AI whispering more effective.</strong> You now know what to look for. You can articulate WHY something works or doesn't. That's the skill that separates effective AI users from ineffective ones."</p>
+                </div>
+                
+                <h4>Connect to Future Work</h4>
+                
+                <div class="objectives-list">
+                    <ul>
+                        <li><strong>Tomorrow (Lesson 3.6):</strong> Discussion about quality and context—reflecting on what you learned today</li>
+                        <li><strong>Creative Project:</strong> Every time you evaluate AI-generated story content, you're using today's skills</li>
+                        <li><strong>Beyond this course:</strong> These criteria work for any AI interaction, any prompting task</li>
+                    </ul>
+                </div>
+            </section>
+            
+            <!-- ASSESSMENT SECTION -->
+            <section id="assessment" class="section">
+                <h2>📊 Assessment & Mastery Points</h2>
+                
+                <h3>Today's Mastery Point Opportunity</h3>
+                
+                <p><strong>Final Field Journal Reflection (1-2-3-4 scale)</strong></p>
+                
+                <div class="highlight-box">
+                    <h4>Field Journal Prompt:</h4>
+                    <p><em>"Describe the editorial criteria you developed today. How did your ability to recognize good output change from the start of class to the end? Give a specific example of a quality difference you noticed that you might have missed before today."</em></p>
+                </div>
+                
+                <h4>Mastery Point Rubric:</h4>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Points</th>
+                            <th>Criteria</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>4 Points<br>(Exemplary)</strong></td>
+                            <td>
+                                • Identifies 4-5 specific, well-articulated evaluation criteria<br>
+                                • Provides concrete examples from both activities<br>
+                                • Reflects thoughtfully on how editorial judgment developed during lesson<br>
+                                • Makes connections to future applications (creative project, career skills)<br>
+                                • Shows evidence of metacognitive awareness ("I used to... now I...")<br>
+                                • Distinguishes between universal and domain-specific criteria
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>3 Points<br>(Proficient)</strong></td>
+                            <td>
+                                • Identifies 3-4 clear evaluation criteria<br>
+                                • Includes examples from both activities<br>
+                                • Describes change in ability to recognize quality<br>
+                                • Makes basic connection to future work<br>
+                                • Sufficient depth for tomorrow's discussion participation
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>2 Points<br>(Developing)</strong></td>
+                            <td>
+                                • Lists 2-3 criteria but may lack specificity<br>
+                                • Limited examples or generic observations<br>
+                                • Minimal reflection on skill development<br>
+                                • May need prompting in tomorrow's discussion<br>
+                                • Shows effort but needs deeper thinking
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>1 Point<br>(Beginning)</strong></td>
+                            <td>
+                                • Vague or incomplete criteria<br>
+                                • No specific examples from activities<br>
+                                • Little evidence of engagement with evaluation process<br>
+                                • Will need significant support in tomorrow's discussion<br>
+                                • May need to supplement with additional work
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <div class="tip-box">
+                    <h4>💡 Assessment Philosophy</h4>
+                    <p>This lesson builds a foundational skill—editorial judgment—that students will use throughout the course. Focus assessment on <strong>progress and engagement</strong> rather than perfection. Students at different starting points will develop at different rates.</p>
+                    <p><strong>Look for evidence that students:</strong></p>
+                    <ul>
+                        <li>Attempted systematic evaluation (not just "I liked this one")</li>
+                        <li>Used specific language (not just "good" or "bad")</li>
+                        <li>Connected criteria to context/audience/purpose</li>
+                        <li>Recognized their own growth during the lesson</li>
+                    </ul>
+                </div>
+                
+                <h3>Formative Assessment During Lab</h3>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>What to Look For</th>
+                            <th>Evidence of Understanding</th>
+                            <th>What It Tells You</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>During Activity 1 Evaluation</strong></td>
+                            <td>
+                                • Using rubric systematically<br>
+                                • Documenting specific features in field journal<br>
+                                • Moving beyond "I like/don't like"<br>
+                                • Identifying concrete differences
+                            </td>
+                            <td>Student is developing criteria-based evaluation skills</td>
+                        </tr>
+                        <tr>
+                            <td><strong>During Team Discussion</strong></td>
+                            <td>
+                                • Can justify rankings with evidence<br>
+                                • Asks questions about teammate observations<br>
+                                • Considers alternative perspectives<br>
+                                • Refers to documented evidence
+                            </td>
+                            <td>Student can articulate reasoning and learn from peers</td>
+                        </tr>
+                        <tr>
+                            <td><strong>During Activity 2 Criteria Development</strong></td>
+                            <td>
+                                • Creates domain-specific (not generic) criteria<br>
+                                • Explains why each criterion matters<br>
+                                • Criteria reflect actual domain knowledge<br>
+                                • Can apply criteria consistently
+                            </td>
+                            <td>Student understands that evaluation depends on context and purpose</td>
+                        </tr>
+                        <tr>
+                            <td><strong>In Field Journal Entries</strong></td>
+                            <td>
+                                • Specific examples with evidence<br>
+                                • Comparative language (better/worse because...)<br>
+                                • Metacognitive reflection on process<br>
+                                • Connections to future applications
+                            </td>
+                            <td>Student is internalizing the editorial eye and recognizing its value</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <h3>Preparing for Tomorrow's Discussion</h3>
+                
+                <p>Tomorrow (Lesson 3.6) is a Discussion Day where students reflect on quality and context. Field journal quality today directly impacts discussion quality tomorrow.</p>
+                
+                <div class="warning-box">
+                    <h4>⚠️ If Many Students Have Insufficient Documentation</h4>
+                    <p>Scan field journals at end of class. If many entries are thin or vague:</p>
+                    <ul>
+                        <li>Build in 5 minutes at start of Lesson 3.6 for students to enhance their entries</li>
+                        <li>Display (anonymously) a strong example entry to show what "specific" looks like</li>
+                        <li>Use think-pair-share before whole-class discussion to build confidence</li>
+                    </ul>
+                </div>
+            </section>
+            
+            <!-- DIFFERENTIATION SECTION -->
+            <section id="differentiation" class="section">
+                <h2>♿ Differentiation & Support</h2>
+                
+                <h3>For Students Struggling with Evaluation</h3>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Challenge</th>
+                            <th>Support Strategy</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Can't identify specific features</strong></td>
+                            <td>
+                                • Provide sentence frames: "Response A is clearer because it _____, while Response B _____"<br>
+                                • Focus on one criterion at a time: "Just look at clarity. Which is clearest? What makes it clear?"<br>
+                                • Use comparison: "What's ONE difference between these two responses?"<br>
+                                • Highlight one sentence from each response: "Which sentence works better? Why?"
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>All responses seem the same</strong></td>
+                            <td>
+                                • Read aloud—sometimes hearing reveals differences<br>
+                                • Focus on openings: "Which first sentence hooks you better?"<br>
+                                • Count sentences: "Does length affect clarity?"<br>
+                                • Look at vocabulary: "Which uses simpler/more complex words?"
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Can't articulate WHY</strong></td>
+                            <td>
+                                • Start with WHAT: "What's different?" Then ask: "Does that difference make it better or worse?"<br>
+                                • Provide vocabulary: concrete, specific, actionable, engaging, organized<br>
+                                • Model your thinking: "I notice Response A defines terms. That helps clarity."<br>
+                                • Document first, analyze later: "Write down everything you notice"
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <h3>For Advanced Students</h3>
+                
+                <div class="objectives-list">
+                    <h4>Extension Challenges:</h4>
+                    <ul>
+                        <li><strong>Multiple audiences:</strong> Evaluate responses for beginner vs. expert audiences simultaneously</li>
+                        <li><strong>Prompt structure comparison:</strong> Generate responses using different prompt structures from Lesson 3.2—which structure works best for their topic?</li>
+                        <li><strong>Meta-analysis:</strong> "Create criteria for evaluating evaluation criteria—what makes a good rubric?"</li>
+                        <li><strong>Cross-domain patterns:</strong> "What evaluation principles transfer across all domains vs. which are domain-specific?"</li>
+                        <li><strong>Compare to expert content:</strong> Find a human-written expert explanation on their topic—how does it compare to AI responses?</li>
+                    </ul>
+                </div>
+                
+                <h3>For Specific Learning Needs</h3>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Need</th>
+                            <th>Accommodation</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Reading Difficulties</strong></td>
+                            <td>
+                                • Use text-to-speech for AI responses<br>
+                                • Provide shorter response examples (under 100 words)<br>
+                                • Allow extra time for reading<br>
+                                • Pair with strong reader who can read aloud
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Writing Difficulties</strong></td>
+                            <td>
+                                • Allow audio field journal entries<br>
+                                • Use speech-to-text for documentation<br>
+                                • Provide pre-made sentence frames for criteria<br>
+                                • Focus on fewer criteria (3 instead of 5)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Executive Function Challenges</strong></td>
+                            <td>
+                                • Provide checklist for each step<br>
+                                • Use graphic organizer for comparison<br>
+                                • Break Activity 2 into explicit sub-steps with time checks<br>
+                                • Allow processing time before documentation
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>ESL Students</strong></td>
+                            <td>
+                                • Allow native language criteria development, then translate<br>
+                                • Focus on criteria beyond language mechanics (accuracy, completeness)<br>
+                                • Pair with strong English speaker for vocabulary support<br>
+                                • Provide translated rubric terms if available
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Students Who Process Verbally</strong></td>
+                            <td>
+                                • Encourage think-aloud during evaluation<br>
+                                • Pair with partner who can capture verbal observations<br>
+                                • Allow discussion before documentation<br>
+                                • Use audio recording for initial thinking
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <div class="tip-box">
+                    <h4>💡 Universal Design Note</h4>
+                    <p>Many "accommodations" benefit ALL students. Sentence frames, comparison checklists, and graphic organizers help students at all levels produce higher-quality evaluations. Don't reserve these supports only for students with identified needs—make them available to everyone.</p>
+                </div>
+            </section>
+            
+            <!-- CHALLENGES SECTION -->
+            <section id="challenges" class="section">
+                <h2>🚧 Common Challenges & Solutions</h2>
+                
+                <h3>Challenge 1: "They all seem the same to me"</h3>
+                
+                <div class="warning-box">
+                    <h4>Why This Happens:</h4>
+                    <p>Students haven't yet developed vocabulary or attention to subtle features. They're looking for dramatic differences when quality often comes down to nuance.</p>
+                    
+                    <h4>Solutions:</h4>
+                    <ul>
+                        <li><strong>Zoom in:</strong> "Pick just ONE criterion. Ignore everything else. Now which is clearest?"</li>
+                        <li><strong>Focus on parts:</strong> "Read just the opening sentence of each. Which hooks you better?"</li>
+                        <li><strong>Use think-aloud:</strong> Model your observation: "I notice Response A uses 'you' language while Response B uses 'one should.' Which feels more engaging?"</li>
+                        <li><strong>Count something:</strong> "How many sentences in each? Does length affect clarity?"</li>
+                        <li><strong>Validate struggle:</strong> "Recognizing subtle differences IS hard—that's why we're practicing"</li>
+                    </ul>
+                </div>
+                
+                <h3>Challenge 2: Students prioritize length over quality</h3>
+                
+                <div class="warning-box">
+                    <h4>Why This Happens:</h4>
+                    <p>"More is better" assumption from traditional school writing carries over to AI evaluation.</p>
+                    
+                    <h4>Solutions:</h4>
+                    <ul>
+                        <li><strong>Ask directly:</strong> "Is the longest response the best? Why or why not?"</li>
+                        <li><strong>Introduce efficiency:</strong> "Good writing says what's needed without waste. Which response is most efficient?"</li>
+                        <li><strong>Real-world connection:</strong> "Would you want to read 3 paragraphs when 1 paragraph does the job?"</li>
+                        <li><strong>Reframe completeness:</strong> "Complete means covering what's needed, not being longest"</li>
+                    </ul>
+                </div>
+                
+                <h3>Challenge 3: Domain expertise creates overconfidence or dismissiveness</h3>
+                
+                <div class="warning-box">
+                    <h4>Why This Happens:</h4>
+                    <p>Students with strong knowledge may dismiss AI too quickly ("this is all wrong") or trust it too much ("if it sounds right, it must be right").</p>
+                    
+                    <h4>Solutions:</h4>
+                    <ul>
+                        <li><strong>Validate expertise:</strong> "Your knowledge helps you catch errors others might miss—that's valuable!"</li>
+                        <li><strong>Push beyond accuracy:</strong> "Beyond correctness, what OTHER criteria matter for someone learning this?"</li>
+                        <li><strong>Shift audience:</strong> "Evaluate this for a beginner, not an expert. What do they need to know first?"</li>
+                        <li><strong>Use the feedback loop:</strong> "Your expertise makes you a BETTER evaluator. What would you tell AI to fix?"</li>
+                    </ul>
+                </div>
+                
+                <h3>Challenge 4: Students can't articulate WHY something is better</h3>
+                
+                <div class="warning-box">
+                    <h4>Why This Happens:</h4>
+                    <p>Intuitive judgment hasn't yet become explicit criteria. They "feel" a difference but can't name it.</p>
+                    
+                    <h4>Solutions:</h4>
+                    <ul>
+                        <li><strong>Provide vocabulary:</strong> Give them words: concrete, specific, actionable, engaging, organized, accurate</li>
+                        <li><strong>Use comparison:</strong> "What's ONE difference between Response A and B?" Start small.</li>
+                        <li><strong>Sentence starters:</strong> "Response A is better because it _____"</li>
+                        <li><strong>Point to specifics:</strong> "Show me the exact sentence that makes it clearer"</li>
+                        <li><strong>Build incrementally:</strong> First name the difference, THEN evaluate if it's better/worse</li>
+                    </ul>
+                </div>
+                
+                <h3>Challenge 5: Activity 2 domains are too broad or too niche</h3>
+                
+                <div class="warning-box">
+                    <h4>Why This Happens:</h4>
+                    <p>Students pick topics that are either so general AI can't show variation ("How to be successful") or so specialized AI lacks training data ("Speedrunning techniques for obscure game").</p>
+                    
+                    <h4>Solutions:</h4>
+                    <ul>
+                        <li><strong>Test specificity:</strong> "Can you teach this to someone in 10 minutes? If yes, it's good scope."</li>
+                        <li><strong>Redirect too broad:</strong> "Success is huge—pick ONE aspect like time management or goal-setting"</li>
+                        <li><strong>Redirect too niche:</strong> "AI might not know that game. Try principles that apply to competitive gaming generally"</li>
+                        <li><strong>Goldilocks test:</strong> "Not too big, not too small—just right for a 150-word explanation"</li>
+                    </ul>
+                </div>
+                
+                <h3>Challenge 6: Time management—activities run long</h3>
+                
+                <div class="warning-box">
+                    <h4>Solutions:</h4>
+                    <ul>
+                        <li><strong>Use visible timer:</strong> Project countdown for each phase</li>
+                        <li><strong>Cut documentation time:</strong> Students can finish field journal as homework if needed</li>
+                        <li><strong>Compress Activity 1 discussion:</strong> 3 minutes instead of 5</li>
+                        <li><strong>Skip closing sharing:</strong> Go straight to connecting future work (2 min instead of 5)</li>
+                        <li><strong>Accept incompletion:</strong> Students can complete Activity 2 criteria development as homework</li>
+                    </ul>
+                </div>
+            </section>
+            
+            <!-- RESOURCES SECTION -->
+            <section id="resources" class="section">
+                <h2>📚 Additional Resources & Extensions</h2>
+                
+                <h3>For Teacher Background Knowledge</h3>
+                
+                <div class="objectives-list">
+                    <h4>Understanding Editorial Judgment:</h4>
+                    <ul>
+                        <li><strong>Professional practice:</strong> Editors use systematic criteria, not personal "taste"</li>
+                        <li><strong>Criteria vary:</strong> What makes good output depends on genre, audience, purpose</li>
+                        <li><strong>Skill develops:</strong> Through deliberate practice with feedback, not osmosis</li>
+                        <li><strong>Evaluation precedes production:</strong> Students can recognize good writing before they can create it</li>
+                        <li><strong>Transfer value:</strong> Evaluation skills transfer across domains more readily than production skills</li>
+                    </ul>
+                </div>
+                
+                <div class="objectives-list">
+                    <h4>Connection to Writing Research:</h4>
+                    <ul>
+                        <li>Students who can evaluate effectively become better revisers (Sommers, 1980)</li>
+                        <li>Peer review skills require systematic criteria (Topping, 1998)</li>
+                        <li>Editorial judgment transfers across domains (Beaufort, 2007)</li>
+                        <li>Metacognition about quality accelerates skill development (Schraw & Dennison, 1994)</li>
+                    </ul>
+                </div>
+                
+                <h3>Connections to Future Lessons</h3>
+                
+                <div class="success-box">
+                    <h4>✅ How This Lab Connects Forward:</h4>
+                    
+                    <p><strong>Lesson 3.6 (Tomorrow - Discussion):</strong></p>
+                    <ul>
+                        <li>Students reflect on quality evaluation from today</li>
+                        <li>Connect back to Lesson 3.3's context decisions</li>
+                        <li>Discuss "back of the mind voice" that evaluates during iteration</li>
+                        <li>Process creative project experiences using editorial judgment</li>
+                    </ul>
+                    
+                    <p><strong>Lesson 3.7 (Lab Day):</strong></p>
+                    <ul>
+                        <li>Building simulations requires strong editorial judgment</li>
+                        <li>Students practice "looks good in 10 minutes, takes all day to fix" experience</li>
+                        <li>Collaborative troubleshooting depends on shared quality criteria</li>
+                    </ul>
+                    
+                    <p><strong>Chapter 4 (Bias):</strong></p>
+                    <ul>
+                        <li>Editorial judgment helps students CATCH bias in output</li>
+                        <li>Recognizing stereotypes and assumptions requires careful evaluation</li>
+                        <li>Quality criteria expand to include fairness and representation</li>
+                    </ul>
+                    
+                    <p><strong>Creative Project Throughout:</strong></p>
+                    <ul>
+                        <li>Students apply editorial judgment to every AI-generated story element</li
